@@ -1,8 +1,8 @@
 import { Given, Then, When, And } from "cypress-cucumber-preprocessor/steps"
-import LoginModule from '../login/loginModule';
+import LoginLogic from '../login/loginLogic';
 
-Given('que estou logada', () => {
-
+Given('que realizo login com sucesso', () => {
+LoginLogic.realizarLogin()
 })
 
 When('', ()=>{
