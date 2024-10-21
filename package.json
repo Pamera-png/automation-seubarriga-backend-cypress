@@ -1,0 +1,20 @@
+{
+  "name": "automation-seubarriga-backend-cypress",
+  "version": "1.0.0",
+  "description": "esse projeto foi criado  para a realização do desafio  do curso de automação web com cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^3.6.0",
+    "cypress-cucumber-preprocessor": "3.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/"
+  }
+}
