@@ -13,9 +13,9 @@ url: '/signin',
         }
     }).its('body.token').should('not.be.empty')
     .then(token =>{
-        Cypress.env('token', token)
 return token
     })
+
 }
 }
 export default new LoginLogic;
