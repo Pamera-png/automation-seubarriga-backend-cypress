@@ -4,11 +4,3 @@ import AccountLogic from '../account/accountLogic';
 When('insiro uma conta com sucesso', ()=>{
 AccountLogic.inserirConta()
 })
-
-And('', () =>{
-
-})
-
-Then('',()=>{
-
-})

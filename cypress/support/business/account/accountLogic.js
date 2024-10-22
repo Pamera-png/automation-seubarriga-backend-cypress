@@ -20,5 +20,6 @@ nome: AccountModel.getNomeConta()
             expect(res.body).to.have.property('nome', 'Conta via rest')
         })
 }
+
 }
 export default new AccountLogic;
