@@ -8,3 +8,7 @@ AccountLogic.inserirConta()
 When('altero uma conta com sucesso', ()=>{
   AccountLogic.atualizarConta()
 })
+
+When('crio uma conta com o mesmo nome', ()=>{
+AccountLogic.criarContaRepetida()
+})

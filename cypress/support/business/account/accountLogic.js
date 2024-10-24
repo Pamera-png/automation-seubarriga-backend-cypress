@@ -55,5 +55,24 @@ cy.request({
     .its('status')
     .should('be.equal', 200)
 }
+
+criarContaRepetida(){
+    cy.request({
+        method: 'POST',
+        url: '/contas',
+    headers: {
+    Authorization: `JWT ${AccountModel.getToken()}`
+    },    
+        body: {
+nome: AccountModel.getContaRepetida()
+        },
+failOnStatusCode: false
+    }).as('response')
+
+    cy.get('@response').then(res => {
+        expect(res.status).to.be.equal(400)
+ expect(res.body.error).to.be.equal('Já existe uma conta com esse nome!')
+    })
+}
 }
 export default new AccountLogic;
