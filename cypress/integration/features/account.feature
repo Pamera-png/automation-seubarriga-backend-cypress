@@ -6,3 +6,6 @@ Então redefino uma conta com sucesso
 
 Cenário: inserir conta com sucesso
 Quando insiro uma conta com sucesso
+
+Cenário: alterar conta com sucesso
+Quando altero uma conta com sucesso
