@@ -21,5 +21,39 @@ nome: AccountModel.getNomeConta()
         })
 }
 
+obterConta(){
+return cy.request({
+    method: 'get',
+    url: '/contas',
+headers: {
+Authorization: `JWT ${AccountModel.getToken()}`
+},
+qs:{
+    nome: AccountModel.getContaByName()
+}
+})
+.then(res =>{
+    return res.body[0].id
+})
+}
+
+atualizarConta(){
+    this.obterConta().then(contaId => {
+cy.request({
+    url: `/contas/${contaId}`,
+    method: 'PUT',
+    headers: {
+        Authorization: `JWT ${AccountModel.getToken()}`
+        },              
+    body: {
+        nome: 'conta alterada via rest'
+    }
+}).as('response')
+    })
+
+    cy.get('@response')
+    .its('status')
+    .should('be.equal', 200)
+}
 }
 export default new AccountLogic;
