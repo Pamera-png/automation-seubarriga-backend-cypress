@@ -4,3 +4,15 @@ import HomeLogic from '../home/homeLogic';
 Then('redefino uma conta com sucesso',()=>{
     HomeLogic.resetarConta()
     })
+
+    When('consulto o saldo da conta', () =>{
+HomeLogic.consultarSaldo()
+    })
+
+    And('', () =>{
+
+    })
+
+    Then('', () =>{
+
+    })
