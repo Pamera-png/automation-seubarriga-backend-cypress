@@ -5,9 +5,9 @@ inserirConta(){
     cy.request({
 url: '/contas',
 method: 'POST',
-headers: {
-    Authorization: `JWT ${AccountModel.getToken()}`
-  },
+//headers: {
+    //Authorization: `JWT ${AccountModel.getToken()}`
+  //},
 
 body: {
 nome: AccountModel.getNomeConta()
@@ -25,9 +25,9 @@ obterConta(){
 return cy.request({
     method: 'get',
     url: '/contas',
-headers: {
-Authorization: `JWT ${AccountModel.getToken()}`
-},
+//headers: {
+//Authorization: `JWT ${AccountModel.getToken()}`
+//},
 qs:{
     nome: AccountModel.getContaByName()
 }
@@ -42,9 +42,9 @@ atualizarConta(){
 cy.request({
     url: `/contas/${contaId}`,
     method: 'PUT',
-    headers: {
-        Authorization: `JWT ${AccountModel.getToken()}`
-        },              
+    //headers: {
+        //Authorization: `JWT ${AccountModel.getToken()}`
+        //},              
     body: {
         nome: 'conta alterada via rest'
     }
@@ -60,9 +60,9 @@ criarContaRepetida(){
     cy.request({
         method: 'POST',
         url: '/contas',
-    headers: {
-    Authorization: `JWT ${AccountModel.getToken()}`
-    },    
+    //headers: {
+    //Authorization: `JWT ${AccountModel.getToken()}`
+    //},    
         body: {
 nome: AccountModel.getContaRepetida()
         },
