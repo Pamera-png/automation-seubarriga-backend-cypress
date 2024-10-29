@@ -9,10 +9,6 @@ Then('redefino uma conta com sucesso',()=>{
 HomeLogic.consultarSaldo()
     })
 
-    And('', () =>{
-
-    })
-
-    Then('', () =>{
-
+    Then('consulto o saldo alterado', () =>{
+        HomeLogic.consultarSaldoAlterado()
     })

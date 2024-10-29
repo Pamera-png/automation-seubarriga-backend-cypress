@@ -30,5 +30,23 @@ expect(HomeModel.getSaldoConta()).to.be.equal('534.00')
             })
         }
 
+        consultarSaldoAlterado(){
+            cy.request({
+                url: '/saldo',
+                method: 'GET',
+                headers: {
+                    Authorization: `JWT ${HomeModel.getToken()}`
+                  }
+            }).then(res => {
+HomeModel.getSaldoConta()
+res.body.forEach(c => {
+if(c.conta==='Conta para saldo'){
+    HomeModel.setSaldoConta(c.saldo)
+}
+})
+expect(HomeModel.getSaldoConta()).to.be.equal('4034.00')
+            })
+        }
+
 }
 export default new HomeLogic;

@@ -14,17 +14,24 @@ Authorization: `JWT ${EstratoModel.getToken()}`
     }).then(res => {
 console.log(res.body[0])
 cy.request({
-    url: `/transacoes ${res.body[0].id}`,
-method: 'PUT',
-headers: {
-    Authorization: `JWT ${EstratoModel.getToken()}`
-            },
-body: {
+    url: `/transacoes/${res.body[0].id}`,
+    method: 'PUT',
+    headers: {
+        Authorization: `JWT ${EstratoModel.getToken()}`
+                },
+    body: {    
     status: true,
-    //continuar a partir daqui
-}    
+    data_transacao: Cypress.moment(res.body[0].data_transacao).format('DD/MM/YYYY'),
+                    data_pagamento: Cypress.moment(res.body[0].data_pagamento).format('DD/MM/YYYY'),
+                    descricao: res.body[0].descricao,
+                    envolvido: res.body[0].envolvido,
+                    valor: res.body[0].valor,
+                    conta_id: res.body[0].conta_id
+    }
 })
-    })
+.its('status')
+.should('be.equal', 200)
+})
 }
 }
 export default new EstratoLogic;

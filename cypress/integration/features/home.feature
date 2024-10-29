@@ -9,5 +9,5 @@ Cenário: resetar conta com sucesso
 
  Cenário: consultar saldo
  Quando consulto o saldo da conta
- #E altero uma movimentacao
- #Então consulto o saldo alterado
+ E altero uma movimentacao
+ Então consulto o saldo alterado
