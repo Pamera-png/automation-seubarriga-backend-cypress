@@ -33,5 +33,29 @@ cy.request({
 .should('be.equal', 200)
 })
 }
+
+removerMovimentacao(){
+    cy.request({
+        method: 'GET',
+        url: '/transacoes',
+        headers: {
+            Authorization: `JWT ${EstratoModel.getToken()}`
+                    },    
+        qs:{
+descricao: 'Movimentacao para exclusao'
+        }
+    }).then(res => {
+        cy.request({
+url: `/transacoes/${res.body[0].id}`,
+            method: 'DELETE',
+            headers: {
+                Authorization: `JWT ${EstratoModel.getToken()}`
+                        },    
+        })
+        .its('status')
+        .should('be.equal', 204)
+    })
+}
+
 }
 export default new EstratoLogic;
